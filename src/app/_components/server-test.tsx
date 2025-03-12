@@ -8,7 +8,5 @@ export const ServerTest = async ({ name }: { name: string }) => {
 		},
 	});
 
-	console.log(data);
-
 	return <p>{data?.body.greeting}</p>;
 };
