@@ -1,7 +1,7 @@
 import { RPCLink } from "@orpc/client/fetch";
-import { InferRouterInputs, InferRouterOutputs } from "@orpc/server";
+import type { InferRouterInputs, InferRouterOutputs } from "@orpc/server";
 
-import { type ApiRouter } from "~/server/api/_app";
+import type { ApiRouter } from "~/server/api/_app";
 
 function getBaseUrl() {
   if (typeof window !== "undefined") return window.location.origin;

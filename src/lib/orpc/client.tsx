@@ -1,11 +1,10 @@
 "use client";
 
-import "client-only";
-
 import { createORPCClient } from "@orpc/client";
 import { createORPCReactQueryUtils } from "@orpc/react-query";
-import { RouterClient } from "@orpc/server";
-import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
+import type { RouterClient } from "@orpc/server";
+import type { QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { createQueryClient } from "~/lib/orpc/query-client";

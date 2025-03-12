@@ -1,3 +1,5 @@
+import "server-only";
+
 import greetingRouter from "./greeting";
 import { base } from "./orpc";
 
