@@ -6,6 +6,6 @@ import { createORPCContext } from "~/server/api/orpc";
 const handler = new RPCHandler(apiRouter);
 
 export const { GET, POST, PUT, PATCH, DELETE } = serve(handler, {
-  prefix: "/rpc",
+  prefix: "/api/rpc",
   context: createORPCContext,
 });

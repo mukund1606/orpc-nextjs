@@ -10,7 +10,7 @@ function getBaseUrl() {
 }
 
 export const rpcLink = new RPCLink({
-  url: new URL("/rpc", getBaseUrl()),
+  url: new URL("/api/rpc", getBaseUrl()),
 });
 
 export type RouterInputs = InferRouterInputs<ApiRouter>;

@@ -6,14 +6,12 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
-    SECRET_KEY: z.string(),
+    DATABASE_URL: z.string().url(),
+    AUTH_SECRET: z.string(),
+    AUTH_URL: z.string().url(),
   },
-  client: {
-    NEXT_PUBLIC_KEY: z.string(),
-  },
-  experimental__runtimeEnv: {
-    NEXT_PUBLIC_KEY: "NEXT_PUBLIC_KEY",
-  },
+  client: {},
+  experimental__runtimeEnv: {},
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
 });

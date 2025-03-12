@@ -4,36 +4,15 @@ import { ORPCError, os } from "@orpc/server";
 import { cookies, headers } from "next/headers";
 import { cache } from "react";
 import { env } from "~/env";
+import { auth } from "~/server/auth";
+import { db } from "~/server/db";
 
 // TODO: Implement auth and db
-const auth = {
-  user: {
-    id: "1",
-    name: "John Doe",
-    email: "john.doe@example.com",
-    role: "admin",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-};
-
-const getSession = cache(async () => {
-  const isSession = true;
-
-  if (!isSession) {
-    return null;
-  }
-
-  return auth;
-});
-
-const db = () => "db";
-
 /**
  * INITIALIZE ORPC
  */
 export const createORPCContext = cache(async () => {
-  const session = await getSession();
+  const session = await auth();
 
   return {
     db,
