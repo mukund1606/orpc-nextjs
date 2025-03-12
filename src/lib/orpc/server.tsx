@@ -1,6 +1,10 @@
 import { createORPCClient } from '@orpc/client';
 import { RPCLink } from '@orpc/client/fetch';
-import { RouterClient } from '@orpc/server';
+import {
+	InferRouterInputs,
+	InferRouterOutputs,
+	RouterClient,
+} from '@orpc/server';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { cache } from 'react';
 
@@ -28,4 +32,8 @@ const rpcLink = new RPCLink({
 	url: new URL('/rpc', getBaseUrl()),
 });
 
-export const apiClient: RouterClient<ApiRouter> = createORPCClient(rpcLink);
+// This works with client.tsx
+export const api: RouterClient<ApiRouter> = createORPCClient(rpcLink);
+
+export type RouterInputs = InferRouterInputs<ApiRouter>;
+export type RouterOutputs = InferRouterOutputs<ApiRouter>;

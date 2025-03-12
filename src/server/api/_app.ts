@@ -1,14 +1,16 @@
-import { createRouterClient } from '@orpc/server';
-import { createORPCContext, router } from '~/server/api/orpc';
+// import { createRouterClient } from '@orpc/server';
+import { router } from '~/server/api/orpc';
 
-import { greetingRouter } from './greeting';
+import greetingRouter from './greeting';
 
 export const apiRouter = router({
 	greeting: greetingRouter,
+	// lazyGreetings: os.lazy(() => import('./greeting')), // This is throwing an error
 });
 
 export type ApiRouter = typeof apiRouter;
 
-export const api = createRouterClient(apiRouter, {
-	context: createORPCContext,
-});
+// Do I need this?? This doesn't work if I import it in client.tsx
+// export const api = createRouterClient(apiRouter, {
+// 	context: createORPCContext,
+// });
